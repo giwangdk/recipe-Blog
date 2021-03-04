@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Discover from "../views/Discover.vue";
+import Categories from "../views/Categories.vue";
+import Recipes from "../views/Recipes.vue";
 
 Vue.use(VueRouter);
 
@@ -18,6 +21,21 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+   {
+    path: "/discover",
+    name: "Discover",
+    component: Discover
+  },
+   {
+    path: "/categories",
+    name: "Categories",
+    component: Categories
+  },
+  {
+    path: "/recipes/:id",
+    name: "Recipes",
+    component: Recipes
   }
 ];
 
