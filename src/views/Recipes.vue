@@ -1,17 +1,22 @@
 <template>
     <div id="recipe">
         <Navbar />
-        <div class="container">
+        <div class="container recipe-detail">
+            <div class="row image-recipe mt-2">
+                    <div class="col ">
+                        <img :src="recipes.strMealThumb" class=" w-100" alt="">
+                    </div>
+                </div>
+
+            <div class="card-recipes mt-4">
             <div class="row">
                 <div class="col">
-                    <h1>
+                    <h1 class="title">
                         {{ recipes.strMeal }}
                     </h1>
                 </div>
             </div>
-
-            <div class="card-recipes">
-                <div class="row">
+                <div class="row ingredient">
                     <div class="col-5 mr-3">
                         <h5>Ingredients</h5>
                         <div class="row">
@@ -42,18 +47,16 @@
                                 </ul>
 
                             </div>
-                            <div class="col-12">
-                                <iframe width="420" height="315" :src="recipes.strYoutube">
-                                </iframe>
-                            </div>
 
                         </div>
                     </div>
                     <div class="col-6">
-                        <img :src="recipes.strMealThumb" class=" w-100" alt="">
+                        <h2 class="text-center">Instructions</h2>
+                        <p class="text-muted">{{recipes.strInstructions}}</p>
                     </div>
                 </div>
 
+                
             </div>
         </div>
     </div>

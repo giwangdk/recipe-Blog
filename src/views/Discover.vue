@@ -1,49 +1,52 @@
 <template>
   <div class="discover">
-    <Navbar/>
+    <Navbar />
     <div class="container">
       <div class="card-category" v-for="category in categories" :key="category.id">
-      <div class="row" >
-        <div class="col-5">
-          <img :src="category.strCategoryThumb" alt="">
-        </div>
-        <div class="col-7">
-          <h1>{{category.strCategory}}</h1>
-          <p class="text-muted">{{category.strCategoryDescription}}</p>
-        </div>
-      </div>
-
+        <CardCategory :category="category"/>
+        <CardRecipe :recipe="recipe" v-show="setRecipes"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import axios from 'axios';
-export default {
-name: "Discover",
-components: {
-            Navbar
-        },
-data(){
-  return{
-    categories: []
-  }
-},
-methods: {
-            setCategory(data) {
-                this.categories = data
-            }
-},
-mounted() {
-            axios
-                .get("http://localhost:3000/categories")
-                .then((response) => this.setCategory(response.data))
-                .catch((err) => console.log(err))
-        }
+  import Navbar from "@/components/Navbar.vue";
+  import CardCategory from "@/components/CardCategory.vue";
+  import CardRecipe from "@/components/CardRecipe.vue";
+  import axios from 'axios';
+  export default {
+    name: "Discover",
+    components: {
+      Navbar,
+      CardCategory,
+      CardRecipe
+    },
+    data() {
+      return {
+        categories: [],
+        recipe:[]
+      }
+    },
+    methods: {
+      setCategory(data) {
+        this.categories = data
+      },
+      setRecipe(){
+        axios
+      .get("http://localhost:3000/meals/?=" + this.categories.strCategory)
+      .then((response)=>this.recipes(response.data))
+      .catch((err)=>console.log(err))
+      }
+    },
+    mounted() {
+      axios
+        .get("http://localhost:3000/categories")
+        .then((response) => this.setCategory(response.data))
+        .catch((err) => console.log(err))
+    }
 
-}
+  }
 </script>
 
 <style>

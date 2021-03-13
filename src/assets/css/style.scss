@@ -10,7 +10,7 @@
 }
 body{
     font-family: 'Poppins', sans-serif;
-    background: rgb(245, 245, 245);
+    background: rgb(221, 221, 221);
 }
 
 nav{
@@ -178,4 +178,27 @@ main{
     border-radius: 20px;
     margin-bottom: 20px;
     padding: 20px;
+}
+
+#recipe{
+    
+    .image-recipe{
+        img{    
+            border-radius: 30px;
+            max-height: 400px;
+            object-fit: cover;
+        }   
+    }
+
+    .card-recipes{
+        background-color: white;
+        border-radius: 30px;
+        padding: 20px;
+        ul{
+            list-style: none;
+        }
+        li{
+            font-size: 14px;
+        }
+    }
 }

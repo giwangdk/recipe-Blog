@@ -27,6 +27,11 @@ const routes = [
     name: "Discover",
     component: Discover
   },
+  {
+    path: "/discover/:strCategory",
+    name: "Discover",
+    component: Discover
+  },
    {
     path: "/categories",
     name: "Categories",
