@@ -2,6 +2,9 @@
     <div id="recipe">
         <Navbar />
         <div class="container recipe-detail">
+            <div class="button-back">
+                <router-link to="/categories" class="btn btn-success button-back">Back </router-link>
+            </div>
             <div class="row image-recipe mt-2">
                     <div class="col ">
                         <img :src="recipes.strMealThumb" class=" w-100" alt="">
@@ -18,9 +21,9 @@
             </div>
                 <div class="row ingredient">
                     <div class="col-5 mr-3">
-                        <h5>Ingredients</h5>
-                        <div class="row">
-                            <div class="col-6">
+                        <h3>Ingredients</h3>
+                        <div class="row text-muted">
+                            <div class="col-6 ">
                                 <ul>
                                     <li>{{recipes.strIngredient1}}</li>
                                     <li>{{recipes.strIngredient2}}</li>
@@ -51,7 +54,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <h2 class="text-center">Instructions</h2>
+                        <h3 class="">Instructions</h3>
                         <p class="text-muted">{{recipes.strInstructions}}</p>
                     </div>
                 </div>
